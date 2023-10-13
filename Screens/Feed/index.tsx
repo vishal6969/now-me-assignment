@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import styles from "./styles";
-import CreatePostCard from "../../components/CreatePostCard";
-import PostCard from "../../components/PostCard";
 import { POSTS_DATA } from "./config";
-import AuthenticationForm from "../../components/AuthenticationForm";
-import AdjustableBottomsheet from "../../components/AdjustableBottomsheet";
+import { AdjustableBottomsheet, AuthenticationForm, CreatePostCard, PostCard } from "../../components";
 
 const Feed = () => {
   const [showAuthentication, setShowAuthentication] = useState(false);

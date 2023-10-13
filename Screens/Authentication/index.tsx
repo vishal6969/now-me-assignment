@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-import Icon from "../../components/Icon";
 import styles from "./styles";
 import colors from "../../constants/colors";
 import { LinearGradient } from "expo-linear-gradient";
-import AuthenticationForm from "../../components/AuthenticationForm";
+import { AuthenticationForm, Icon } from "../../components";
 import routes from "../../navigation/routes";
 
 const Authentication = ({ navigation }) => {

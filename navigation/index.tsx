@@ -1,9 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Feed from "../Screens/Feed";
+import { Authentication, Feed } from "../screens";
 import colors from "../constants/colors";
-import Authentication from "../Screens/Authentication";
 import routes from "./routes";
 
 const Navigation = () => {
