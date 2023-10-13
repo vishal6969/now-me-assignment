@@ -8,53 +8,44 @@ import Icon from "../Icon";
 interface AuthenticationFormI {
   onSubmit: () => void;
   isSignup: boolean;
-  setIsSignup: (isSignup: boolean) => void;
+  toggleIsSignup: () => void;
 }
 
 const AuthenticationForm = ({
   onSubmit,
   isSignup,
-  setIsSignup,
+  toggleIsSignup,
 }: AuthenticationFormI) => {
-  const [isPasswordSecure, setIsPasswordSecure] = useState(true);
-
   return (
     <View>
       <InputComponent
         label={isSignup ? "Email" : "Email or Username"}
-        placeHolder="Enter your email"
+        placeholder="Enter your email"
         containerStyle={styles.emailInput}
       />
       {isSignup ? (
         <InputComponent
           label="Username"
-          placeHolder="Choose a preferred username"
+          placeholder="Choose a preferred username"
           containerStyle={styles.usernameInput}
         />
       ) : null}
       <InputComponent
         label="Password"
-        placeHolder={
+        placeholder={
           isSignup ? "Choose a preferred password" : "Your supersafe password"
         }
         containerStyle={styles.usernameInput}
-        isSecure={isPasswordSecure}
         actionLabel={isSignup ? null : "Forgot password?"}
-      >
-        <Pressable onPress={() => setIsPasswordSecure(!isPasswordSecure)}>
-          <Icon name="eye" />
-        </Pressable>
-      </InputComponent>
+        inputType={"password"}
+      />
       <Button
         onPress={onSubmit}
         textStyle={styles.btnText}
         containerStyle={styles.submitBtn}
         text={isSignup ? "Continue" : "Login now"}
       />
-      <Text
-        onPress={() => setIsSignup(!isSignup)}
-        style={styles.redirectionTxt}
-      >
+      <Text onPress={() => toggleIsSignup()} style={styles.redirectionTxt}>
         {isSignup ? "Already have an account?" : "Not registered yet?"}{" "}
         <Text style={styles.boldTxt}>{isSignup ? "Login" : "Register"} →</Text>
       </Text>

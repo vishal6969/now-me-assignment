@@ -31,6 +31,10 @@ const Feed = () => {
             setShowAuthentication(true);
           }}
           containerStyle={styles.createPost}
+          title={"Create post"}
+          placeholder={"How are you feeling today?"}
+          actionButtonLabel={"Post"}
+          emoji={"💬"}
         />
         {POSTS_DATA.map((post) => (
           <PostCard
@@ -54,7 +58,7 @@ const Feed = () => {
           children={
             <AuthenticationForm
               isSignup={isSignup}
-              setIsSignup={setIsSignup}
+              toggleIsSignup={() => setIsSignup(!isSignup)}
               onSubmit={() => setShowAuthentication(false)}
             />
           }

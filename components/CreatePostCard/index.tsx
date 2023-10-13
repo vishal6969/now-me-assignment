@@ -6,21 +6,32 @@ import Button from "../Button";
 
 interface CreatePostCardI {
   containerStyle: ViewStyle;
+  title: string;
+  placeholder: string;
+  actionButtonLabel: string;
+  emoji: string;
   onPress: () => void;
 }
 
-const CreatePostCard = ({ containerStyle, onPress }: CreatePostCardI) => {
+const CreatePostCard = ({
+  containerStyle,
+  onPress,
+  title,
+  placeholder,
+  actionButtonLabel,
+  emoji,
+}: CreatePostCardI) => {
   return (
     <Pressable onPress={onPress} style={[styles.container, containerStyle]}>
-      <Text style={styles.title}>Create post</Text>
+      <Text style={styles.title}>{title}</Text>
       <View style={styles.postInput}>
-        <EmojiComponent emoji={"💬"} />
-        <Text style={styles.placeHolderTxt}>How are you feeling today?</Text>
+        <EmojiComponent emoji={emoji} />
+        <Text style={styles.placeHolderTxt}>{placeholder}</Text>
       </View>
       <Button
         onPress={onPress}
         containerStyle={styles.postButton}
-        text={"Post"}
+        text={actionButtonLabel}
       />
     </Pressable>
   );

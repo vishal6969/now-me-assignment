@@ -31,7 +31,7 @@ const Authentication = ({ navigation }) => {
               navigation.navigate(routes.Feed);
             }}
             isSignup={isSignup}
-            setIsSignup={setIsSignup}
+            toggleIsSignup={() => setIsSignup(!isSignup)}
           />
         </View>
       </LinearGradient>

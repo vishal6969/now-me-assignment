@@ -1,25 +1,33 @@
-import React from "react";
-import { Text, TextInput, View, ViewStyle } from "react-native";
+import React, { useState } from "react";
+import {
+  Pressable,
+  Text,
+  TextInput,
+  TextInputProps,
+  View,
+  ViewStyle,
+} from "react-native";
 import styles from "./styles";
 import colors from "../../constants/colors";
+import Icon from "../Icon";
 
 interface InputComponentI {
   label: string;
   containerStyle?: ViewStyle;
-  placeHolder?: string;
-  isSecure?: boolean;
-  children?: React.ReactNode;
   actionLabel?: string | null;
+  inputType?: "normal" | "password";
 }
 
 const InputComponent = ({
   label,
   containerStyle,
-  placeHolder,
-  isSecure,
-  children,
+  placeholder,
   actionLabel,
-}: InputComponentI) => {
+  inputType,
+}: InputComponentI & TextInputProps) => {
+  const isInputTypePass = inputType === "password";
+  const [isSecure, setIsSecure] = useState(isInputTypePass);
+
   return (
     <View style={containerStyle}>
       <View style={styles.labelContainer}>
@@ -33,9 +41,13 @@ const InputComponent = ({
           secureTextEntry={isSecure}
           placeholderTextColor={colors.eyeBlue}
           style={styles.input}
-          placeholder={placeHolder}
+          placeholder={placeholder}
         />
-        {children}
+        {isInputTypePass ? (
+          <Pressable onPress={() => setIsSecure(!isSecure)}>
+            <Icon name="eye" />
+          </Pressable>
+        ) : null}
       </View>
     </View>
   );

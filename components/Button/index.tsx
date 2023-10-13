@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Pressable,
-  StyleProp,
   StyleSheet,
   Text,
   TextStyle,
@@ -13,7 +12,7 @@ interface ButtonI {
   text: string;
   onPress: () => void;
   containerStyle?: ViewStyle;
-  textStyle?: StyleProp<TextStyle>;
+  textStyle?: TextStyle;
 }
 
 const Button = ({ text, onPress, containerStyle, textStyle }: ButtonI) => {
@@ -31,8 +30,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.btnBlue,
     borderRadius: 4,
-    width: 87,
-    height: 37,
+    paddingVertical: 10,
+    paddingHorizontal: 28,
   },
   text: {
     fontFamily: "Inter-Medium",
