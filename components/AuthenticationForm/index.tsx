@@ -8,13 +8,13 @@ import Icon from "../Icon";
 interface AuthenticationFormI {
   onSubmit: () => void;
   isSignup: boolean;
-  toggleIsSignup: () => void;
+  toggleAuthForm: () => void;
 }
 
 const AuthenticationForm = ({
   onSubmit,
   isSignup,
-  toggleIsSignup,
+  toggleAuthForm,
 }: AuthenticationFormI) => {
   return (
     <View>
@@ -45,7 +45,7 @@ const AuthenticationForm = ({
         containerStyle={styles.submitBtn}
         text={isSignup ? "Continue" : "Login now"}
       />
-      <Text onPress={() => toggleIsSignup()} style={styles.redirectionTxt}>
+      <Text onPress={toggleAuthForm} style={styles.redirectionTxt}>
         {isSignup ? "Already have an account?" : "Not registered yet?"}{" "}
         <Text style={styles.boldTxt}>{isSignup ? "Login" : "Register"} →</Text>
       </Text>

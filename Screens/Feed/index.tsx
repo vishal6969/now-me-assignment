@@ -58,7 +58,7 @@ const Feed = () => {
           children={
             <AuthenticationForm
               isSignup={isSignup}
-              toggleIsSignup={() => setIsSignup(!isSignup)}
+              toggleAuthForm={() => setIsSignup(!isSignup)}
               onSubmit={() => setShowAuthentication(false)}
             />
           }
