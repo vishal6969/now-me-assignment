@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import styles from "./styles";
-import { POSTS_DATA } from "./config";
-import { AdjustableBottomsheet, AuthenticationForm, CreatePostCard, PostCard } from "../../components";
+import { POSTS_DATA } from "../../config";
+import {
+  AdjustableBottomsheet,
+  AuthenticationForm,
+  CreatePostCard,
+  PostCard,
+} from "../../components";
 
 const Feed = () => {
   const [showAuthentication, setShowAuthentication] = useState(false);
@@ -34,7 +39,7 @@ const Feed = () => {
             }}
             key={post.id}
             containerStyle={styles.postCard}
-            {...post}
+            data={post}
           />
         ))}
       </ScrollView>
